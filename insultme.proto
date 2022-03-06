@@ -1,0 +1,17 @@
+syntax = 'proto3';
+
+
+
+
+service insultme {
+  rpc SayInsult(sayInsult) returns (insultReply);
+}
+
+
+message insultReply {
+  string message = 1 ;
+}
+
+message sayInsult {
+  string message = 2;
+}
