@@ -12,8 +12,10 @@ import insultme
 
 class insultmeServicer(insultme_pb2_grpc.insultmeServicer):
 
-    def insultme(self, context):
+    def insultme(self, request, context):
         response = insultme_pb2.insultReply
+        response.value = insultme.insultme()
+
         return response
 
 
@@ -25,6 +27,7 @@ insultme_pb2_grpc.add_insultmeServicer_to_server(insultmeServicer(), server)
 print('Starting server. Listening on port 50051.')
 server.add_insecure_port('[::]:50051')
 server.start()
+
 
 try:
     while True:
