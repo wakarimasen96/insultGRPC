@@ -1,17 +1,13 @@
 syntax = 'proto3';
-
+import "google/protobuf/empty.proto";
 
 
 
 service insultme {
-  rpc SayInsult(sayInsult) returns (insultReply);
+  rpc SayInsult(google.protobuf.Empty) returns (insultReply);
 }
-
 
 message insultReply {
   string message = 1 ;
 }
 
-message sayInsult {
-  string message = 2;
-}
